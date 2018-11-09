@@ -41,7 +41,6 @@ namespace Microsoft.CodeAnalysis.CSharp.Classification.Classifiers
 
             var _ =
                 TryClassifySymbol(name, symbolInfo, semanticModel, result, cancellationToken) ||
-                TryClassifyAsNamespace(name, symbolInfo, result) ||
                 TryClassifyFromIdentifier(name, symbolInfo, result) ||
                 TryClassifyValueIdentifier(name, symbolInfo, result) ||
                 TryClassifyNameOfIdentifier(name, symbolInfo, result);
@@ -113,7 +112,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Classification.Classifiers
             Text.TextSpan span,
             ArrayBuilder<ClassifiedSpan> result)
         {
-            if (symbol?.IsStatic == true)
+            if (symbol?.IsStatic == true
+                // && (!symbol.IsKind(SymbolKind.Field) || symbol.ContainingType?.IsEnumType() == false) // TODO: Since Enum members are always static is it useful to classify them as static?
+                && !symbol.IsKind(SymbolKind.Namespace)) // TODO: Since Namespace are always static is it useful to classify them as static?
             {
                 result.Add(new ClassifiedSpan(span, ClassificationTypeNames.StaticSymbol));
             }
@@ -311,33 +312,6 @@ namespace Microsoft.CodeAnalysis.CSharp.Classification.Classifiers
             }
 
             return symbolInfo.Symbol;
-        }
-
-        private bool TryClassifyAsNamespace(
-            NameSyntax name,
-            SymbolInfo symbolInfo,
-            ArrayBuilder<ClassifiedSpan> result)
-        {
-            if (symbolInfo.Symbol != null
-                && IsNamespaceName(name))
-            {
-                result.Add(new ClassifiedSpan(name.Span, ClassificationTypeNames.NamespaceName));
-                return true;
-            }
-
-            return false;
-        }
-
-        private static bool IsNamespaceName(NameSyntax name)
-        {
-            while (name.Parent is NameSyntax)
-            {
-                name = (NameSyntax)name.Parent;
-            }
-
-            return name.IsParentKind(SyntaxKind.NamespaceDeclaration)
-                || name.IsParentKind(SyntaxKind.UsingDirective)
-                || name.IsParentKind(SyntaxKind.SimpleMemberAccessExpression);
         }
 
         private bool TryClassifyFromIdentifier(
