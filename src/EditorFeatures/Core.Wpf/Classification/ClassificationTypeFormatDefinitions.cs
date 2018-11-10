@@ -232,6 +232,7 @@ namespace Microsoft.CodeAnalysis.Editor.Implementation.Classification
         [Name(ClassificationTypeNames.FieldName)]
         [Order(After = PredefinedClassificationTypeNames.Identifier)]
         [Order(After = PredefinedClassificationTypeNames.Keyword)]
+        [Order(Before = ClassificationTypeNames.StaticSymbol)]
         [UserVisible(true)]
         [ExcludeFromCodeCoverage]
         private class UserIdentifierFieldNameFormatDefinition : ClassificationFormatDefinition
@@ -249,6 +250,7 @@ namespace Microsoft.CodeAnalysis.Editor.Implementation.Classification
         [Name(ClassificationTypeNames.EnumMemberName)]
         [Order(After = PredefinedClassificationTypeNames.Identifier)]
         [Order(After = PredefinedClassificationTypeNames.Keyword)]
+        [Order(Before = ClassificationTypeNames.StaticSymbol)]
         [UserVisible(true)]
         [ExcludeFromCodeCoverage]
         private class UserIdentifierEnumMemberNameFormatDefinition : ClassificationFormatDefinition
@@ -266,6 +268,7 @@ namespace Microsoft.CodeAnalysis.Editor.Implementation.Classification
         [Name(ClassificationTypeNames.ConstantName)]
         [Order(After = PredefinedClassificationTypeNames.Identifier)]
         [Order(After = PredefinedClassificationTypeNames.Keyword)]
+        [Order(Before = ClassificationTypeNames.StaticSymbol)]
         [UserVisible(true)]
         [ExcludeFromCodeCoverage]
         private class UserIdentifierConstantNameFormatDefinition : ClassificationFormatDefinition
@@ -283,6 +286,7 @@ namespace Microsoft.CodeAnalysis.Editor.Implementation.Classification
         [Name(ClassificationTypeNames.LocalName)]
         [Order(After = PredefinedClassificationTypeNames.Identifier)]
         [Order(After = PredefinedClassificationTypeNames.Keyword)]
+        [Order(Before = ClassificationTypeNames.StaticSymbol)]
         [UserVisible(true)]
         [ExcludeFromCodeCoverage]
         private class UserIdentifierLocalNameFormatDefinition : ClassificationFormatDefinition
@@ -300,6 +304,7 @@ namespace Microsoft.CodeAnalysis.Editor.Implementation.Classification
         [Name(ClassificationTypeNames.ParameterName)]
         [Order(After = PredefinedClassificationTypeNames.Identifier)]
         [Order(After = PredefinedClassificationTypeNames.Keyword)]
+        [Order(Before = ClassificationTypeNames.StaticSymbol)]
         [UserVisible(true)]
         [ExcludeFromCodeCoverage]
         private class UserIdentifierParameterNameFormatDefinition : ClassificationFormatDefinition
@@ -317,6 +322,7 @@ namespace Microsoft.CodeAnalysis.Editor.Implementation.Classification
         [Name(ClassificationTypeNames.MethodName)]
         [Order(After = PredefinedClassificationTypeNames.Identifier)]
         [Order(After = PredefinedClassificationTypeNames.Keyword)]
+        [Order(Before = ClassificationTypeNames.StaticSymbol)]
         [UserVisible(true)]
         [ExcludeFromCodeCoverage]
         private class UserIdentifierMethodNameFormatDefinition : ClassificationFormatDefinition
@@ -334,6 +340,7 @@ namespace Microsoft.CodeAnalysis.Editor.Implementation.Classification
         [Name(ClassificationTypeNames.ExtensionMethodName)]
         [Order(After = PredefinedClassificationTypeNames.Identifier)]
         [Order(After = PredefinedClassificationTypeNames.Keyword)]
+        [Order(Before = ClassificationTypeNames.StaticSymbol)]
         [UserVisible(true)]
         [ExcludeFromCodeCoverage]
         private class UserIdentifierExtensionMethodNameFormatDefinition : ClassificationFormatDefinition
@@ -351,6 +358,7 @@ namespace Microsoft.CodeAnalysis.Editor.Implementation.Classification
         [Name(ClassificationTypeNames.PropertyName)]
         [Order(After = PredefinedClassificationTypeNames.Identifier)]
         [Order(After = PredefinedClassificationTypeNames.Keyword)]
+        [Order(Before = ClassificationTypeNames.StaticSymbol)]
         [UserVisible(true)]
         [ExcludeFromCodeCoverage]
         private class UserIdentifierPropertyNameFormatDefinition : ClassificationFormatDefinition
@@ -368,6 +376,7 @@ namespace Microsoft.CodeAnalysis.Editor.Implementation.Classification
         [Name(ClassificationTypeNames.EventName)]
         [Order(After = PredefinedClassificationTypeNames.Identifier)]
         [Order(After = PredefinedClassificationTypeNames.Keyword)]
+        [Order(Before = ClassificationTypeNames.StaticSymbol)]
         [UserVisible(true)]
         [ExcludeFromCodeCoverage]
         private class UserIdentifierEventNameFormatDefinition : ClassificationFormatDefinition
@@ -385,6 +394,7 @@ namespace Microsoft.CodeAnalysis.Editor.Implementation.Classification
         [Name(ClassificationTypeNames.NamespaceName)]
         [Order(After = PredefinedClassificationTypeNames.Identifier)]
         [Order(After = PredefinedClassificationTypeNames.Keyword)]
+        [Order(Before = ClassificationTypeNames.StaticSymbol)]
         [UserVisible(true)]
         [ExcludeFromCodeCoverage]
         private class UserIdentifierNamespaceNameFormatDefinition : ClassificationFormatDefinition
